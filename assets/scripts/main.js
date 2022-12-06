@@ -4,6 +4,10 @@
 const loadingDOM = document.getElementById('loading');
 const homeDOM = document.getElementById('home');
 const treesDOM = document.getElementById('trees');
+const buttonRedBlack = document.getElementById("button-redblack");
+const buttonB = document.getElementById("button-B");
+const buttonBplus = document.getElementById("button-Bplus");
+const buttonBack = document.getElementById("button-Back");
 /*
  *  MAQUINA DE ESTADOS PARA CONTROLAR AS TELAS DA APLICAÇÃO
  */
@@ -42,3 +46,11 @@ const showElement = ( element ) => {
  *  LISTENERS
  */
 window.addEventListener("load", (event) => stateMachine("home"));
+
+buttonRedBlack.addEventListener("click", () => stateMachine("trees"));
+
+buttonB.addEventListener("click", () => stateMachine("trees"));
+
+buttonBplus.addEventListener("click", () => stateMachine("trees"));
+
+buttonBack.addEventListener("click", () => stateMachine("home"));
