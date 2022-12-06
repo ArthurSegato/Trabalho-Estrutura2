@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+	<!-- Metadados -->
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Trabalho</title>
+	<!-- CSS -->
 	<link rel="stylesheet" href="assets/styles/main.css">
 	<link rel="stylesheet" href="assets/styles/home.css">
+	<link rel="stylesheet" href="assets/styles/trees.css">
+	<!-- Fontes -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-	<title>Trabalho</title>
 </head>
+
 <body>
+	<!-- Tela Inicial -->
 	<section id="home" class="home hidden-element">
 		<div class="home__container scale-in-center">
 			<h1 class="home__title">Trabalho Estrutura de Dados 2</h1>
@@ -21,7 +28,8 @@
 				<h2 class="description__subtitle">Turma:</h2>
 				<p class="description_text">CC5M</p>
 				<h2 class="description__subtitle">Grupo:</h2>
-				<p class="description_text">Arthur Segato Paulo, Carlos André, Erick Alves Merlins Cardoso, Gabryel Alcantara Silva, Lucas Barcellos, Marcelo Martins, Marcos Vinicius Coutinho.</p>
+				<p class="description_text">Arthur Segato Paulo, Carlos André, Erick Alves Merlins Cardoso, Gabryel
+					Alcantara Silva, Lucas Barcellos, Marcelo Martins, Marcos Vinicius Coutinho.</p>
 			</div>
 			<div class="home__buttons">
 				<a href="#" id="button-redblack" class="button">Árvore Vermelho-Preta</a>
@@ -30,15 +38,32 @@
 			</div>
 		</div>
 	</section>
+	<!-- Tela das arvores -->
 	<section id="trees" class="trees">
-			<header>
-				
-			</header>
-			<main>
+		<div id="sidebar" class="sidebar">
+			<h3 class="sidebar__title">Opcoes:</h3>
+			<div>
+				<label for="tree-insert">Inserir:</label>
+				<input type="number" name="tree-insert" id="tree-insert">
+			</div>
+			<div>
+				<label for="tree-remove">Remover:</label>
+				<input type="number" name="tree-remove" id="tree-remove">
+			</div>
+			<div>
+				<label for="tree-search">Buscar:</label>
+				<input type="number" name="tree-search" id="tree-search">
+			</div>
+		</div>
+		<div id="canvas__container" class="canvas__container">
+			<h4 id="canvas__title" class="canvas__title">Arvore Vermelho Preta</h4>
+			<canvas id="canvas" class="canvas">
 
-			</main>
+			</canvas>
+		</div>
 	</section>
-	</main>
+	<!-- Scripts -->
 	<script src="assets/scripts/main.js"></script>
 </body>
+
 </html>
