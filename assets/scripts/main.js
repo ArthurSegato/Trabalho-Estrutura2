@@ -20,6 +20,8 @@ const treeSearchInput = document.getElementById("treeSearchInput");
 const treeSearchButton = document.getElementById("treeSearchButton");
 const canvasBPlus = document.getElementById("canvas-bplus"); 
 let currentState = "loading";
+let NKEYS = 0;
+let btree = null;
 /*
  *  LISTENERS
  */
@@ -35,7 +37,8 @@ buttonBack.addEventListener("click", () => stateMachine("home"));
 
 treeOrderButton.addEventListener("click", () => {
     if(currentState == "tree-b"){
-
+        NKEYS = treeOrderInput.value;
+        btree = new BTree();
     }
     
     if(currentState == "tree-bplus") {
@@ -50,7 +53,7 @@ treeInsertButton.addEventListener("click", () => {
     }
 
     if(currentState == "tree-b"){
-
+        btree.add(treeInsertInput.value);
     }
     
     if(currentState == "tree-bplus") {
@@ -65,7 +68,7 @@ treeRemoveButton.addEventListener("click", () => {
     }
 
     if(currentState == "tree-b"){
-
+        btree.remove(treeInsertInput.value);
     }
     
     if(currentState == "tree-bplus") {
