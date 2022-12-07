@@ -9,15 +9,15 @@
 }
 
 .sidebar {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
-    width: 15vw;
     z-index: 1;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     padding: 5vh 2vw 5vh 2vw;
-    box-sizing: border-box;
+    width: 15vw;
+    height: 100%;
 }
 
 .sidebar__title {
@@ -33,40 +33,40 @@
 }
 
 .sidebar__input {
+    box-sizing: border-box;
+    display: inline-flex;
     align-items: center;
-	background-color: #fff;
-	border: 2px solid #000;
-	box-sizing: border-box;
-	color: #000;
-	cursor: pointer;
-	display: inline-flex;
-	fill: #000;
-	font-weight: 700;
-    font-size: 0.8rem;
-	height: 48px;
-	justify-content: center;
-	letter-spacing: -.8px;
-	line-height: 24px;
-	outline: 0;
-	padding: 0 17px;
-	text-decoration: none;
-	transition: all .3s;
+    justify-content: center;
+    transition: all .3s;
+    outline: 0;
+    border: 2px solid #000;
+    background-color: #fff;
+    cursor: pointer;
+    padding: 0 17px;
     width: 100%;
+    height: 48px;
+    text-decoration: none;
+    line-height: 24px;
+    letter-spacing: -.8px;
+    color: #000;
+    font-size: 0.8rem;
+    font-weight: 700;
+    fill: #000;
 }
 
 .canvas__container {
     display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
     flex: 1;
+    flex-direction: column;
     background-color: #F9F9F9;
+    width: 100%;
+    height: 100%;
 }
 
 .canvas__title {
+    padding: 3vh 0vw 3vh 0vw;
     width: 100%;
     text-align: center;
-    padding: 3vh 0vw 3vh 0vw;
     font-size: 1.4rem;
 }
 

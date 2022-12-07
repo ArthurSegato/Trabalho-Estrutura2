@@ -3,9 +3,9 @@
 */
 /*	Resets	*/
 * {
-	padding: 0;
 	margin: 0;
 	border: 0;
+	padding: 0;
 	line-height: 1.5;
 }
 
@@ -13,8 +13,8 @@
 html {
 	width: 100%;
 	height: 100%;
-	font-family: 'Lato', sans-serif;
 	color: #303030;
+	font-family: 'Lato', sans-serif;
 	font-size: calc(15px + 0.390625vw);
 }
 
@@ -24,26 +24,26 @@ html {
 
 /*	Botoes	*/
 .button {
-	align-items: center;
-	background-color: #fff;
-	border: 2px solid #000;
 	box-sizing: border-box;
-	color: #000;
-	cursor: pointer;
 	display: inline-flex;
-	fill: #000;
-	font-size: 0.8rem;
-	font-weight: 600;
-	height: 48px;
+	align-items: center;
 	justify-content: center;
-	letter-spacing: -.8px;
-	line-height: 24px;
-	min-width: 140px;
+	transition: all .3s;
 	outline: 0;
+	border: 2px solid #000;
+	background-color: #fff;
+	cursor: pointer;
 	padding: 0 17px;
+	min-width: 140px;
+	height: 48px;
 	text-align: center;
 	text-decoration: none;
-	transition: all .3s;
+	line-height: 24px;
+	letter-spacing: -.8px;
+	color: #000;
+	font-size: 0.8rem;
+	font-weight: 600;
+	fill: #000;
 	user-select: none;
 	-webkit-user-select: none;
 	touch-action: manipulation;
@@ -81,13 +81,13 @@ html {
 
 /*	Animacoes	*/
 .scale-in-center {
-	-webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	-webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .slide-in-left {
-	-webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	-webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 /* ----------------------------------------------
@@ -96,7 +96,6 @@ html {
  * See http://animista.net/license for more info. 
  * w: http://animista.net, t: @cssanimista
  * ---------------------------------------------- */
-
 /**
  * ----------------------------------------
  * animation scale-in-center
@@ -104,29 +103,29 @@ html {
  */
 @-webkit-keyframes scale-in-center {
 	0% {
-		-webkit-transform: scale(0);
 		transform: scale(0);
 		opacity: 1;
+		-webkit-transform: scale(0);
 	}
 
 	100% {
-		-webkit-transform: scale(1);
 		transform: scale(1);
 		opacity: 1;
+		-webkit-transform: scale(1);
 	}
 }
 
 @keyframes scale-in-center {
 	0% {
-		-webkit-transform: scale(0);
 		transform: scale(0);
 		opacity: 1;
+		-webkit-transform: scale(0);
 	}
 
 	100% {
-		-webkit-transform: scale(1);
 		transform: scale(1);
 		opacity: 1;
+		-webkit-transform: scale(1);
 	}
 }
 
@@ -137,28 +136,28 @@ html {
  */
 @-webkit-keyframes slide-in-left {
 	0% {
-		-webkit-transform: translateX(-1000px);
 		transform: translateX(-1000px);
 		opacity: 0;
+		-webkit-transform: translateX(-1000px);
 	}
 
 	100% {
-		-webkit-transform: translateX(0);
 		transform: translateX(0);
 		opacity: 1;
+		-webkit-transform: translateX(0);
 	}
 }
 
 @keyframes slide-in-left {
 	0% {
-		-webkit-transform: translateX(-1000px);
 		transform: translateX(-1000px);
 		opacity: 0;
+		-webkit-transform: translateX(-1000px);
 	}
 
 	100% {
-		-webkit-transform: translateX(0);
 		transform: translateX(0);
 		opacity: 1;
+		-webkit-transform: translateX(0);
 	}
 }

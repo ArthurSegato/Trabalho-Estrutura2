@@ -1,5 +1,5 @@
 /*
- *  DECLARAÇÃO DE VARIÁVEIS 
+ *  DECLARAÇÃO DE VARIÁVEIS (ARMAZENANDO O DOM EM CACHE)
  */
 const loadingDOM = document.getElementById('loading');
 const homeDOM = document.getElementById('home');
@@ -27,9 +27,7 @@ buttonBack.addEventListener("click", () => stateMachine("home"));
 const stateMachine = (state) => {
     switch (state) {
         case "loading":
-            removeElement(homeDOM);
-            removeElement(treesDOM);
-            showElement(loadingDOM);
+            loadingHandler();
             break;
         case "home":
             homeHandler();
@@ -48,39 +46,45 @@ const stateMachine = (state) => {
     }
 };
 /*
- *  FUNCOES PARA REMOVER OU ADICIONAR ELEMENTOS NA TELA
+ *  FUNCOES UTILIZADAS PELA MAQUINA DE ESTADOS
  */
-const removeElement = ( element ) => {
+const removeElement = (element) => {
     element.classList.add("hidden-element");
 };
 
-const showElement = ( element ) => {
+const showElement = (element) => {
     element.classList.remove("hidden-element");
+};
+
+const loadingHandler = () => {
+    removeElement(homeDOM);
+    removeElement(treesDOM);
+    showElement(loadingDOM);
 };
 
 const homeHandler = () => {
     removeElement(loadingDOM);
     removeElement(treesDOM);
     showElement(homeDOM);
-}
+};
 
 const redblackHandler = () => {
     removeElement(homeDOM);
     removeElement(loadingDOM);
     showElement(treesDOM);
     treesTitle.innerText = "Árvore Vermelho-Preta";
-}
+};
 
 const bHandler = () => {
     removeElement(homeDOM);
     removeElement(loadingDOM);
     showElement(treesDOM);
     treesTitle.innerText = "Árvore B";
-}
+};
 
 const bplusHandler = () => {
     removeElement(homeDOM);
     removeElement(loadingDOM);
     showElement(treesDOM);
     treesTitle.innerText = "Árvore B+";
-}
+};
