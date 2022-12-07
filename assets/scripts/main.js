@@ -18,6 +18,7 @@ const treeRemoveInput = document.getElementById("treeRemoveInput");
 const treeRemoveButton = document.getElementById("treeRemoveButton");
 const treeSearchInput = document.getElementById("treeSearchInput");
 const treeSearchButton = document.getElementById("treeSearchButton");
+const canvasBPlus = document.getElementById("canvas-bplus"); 
 let currentState = "loading";
 /*
  *  LISTENERS
@@ -144,6 +145,7 @@ const redblackHandler = () => {
     removeElement(loadingDOM);
     showElement(treesDOM);
     removeElement(treeOrderContainer);
+    removeElement(canvasBPlus);
     treesTitle.innerText = "Árvore Vermelho-Preta";
 };
 
@@ -152,6 +154,7 @@ const bHandler = () => {
     removeElement(loadingDOM);
     showElement(treesDOM);
     showElement(treeOrderContainer);
+    removeElement(canvasBPlus);
     treesTitle.innerText = "Árvore B";
 };
 
@@ -160,5 +163,6 @@ const bplusHandler = () => {
     removeElement(loadingDOM);
     showElement(treesDOM);
     showElement(treeOrderContainer);
+    showElement(canvasBPlus);
     treesTitle.innerText = "Árvore B+";
 };
