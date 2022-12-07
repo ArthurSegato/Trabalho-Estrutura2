@@ -3,8 +3,8 @@ Esse arquivo contém todas as configurações de desenho da arvore:
 Canva, tabelas, nós, cores, linhas, posições e etc...
 */
 
-var treeHTML;
-var useCanvas = !!document.createElement('canvas').getContext;
+let treeHTML;
+let useCanvas = !!document.createElement('canvas').getContext;
 
 tree.prototype.show = function (canvasId) {
 	treeHTML = '\r\nEncontrado: ' + this.found.toString().toUpperCase();
@@ -20,7 +20,7 @@ tree.prototype.show = function (canvasId) {
 
 tree.prototype.showoff = function (canvasId) {
 	if (useCanvas) {
-		var canv = ge$(canvasId);
+		let canv = ge$(canvasId);
 		canv.width = 1;
 		canv.height = 1;
 	}
@@ -45,21 +45,20 @@ tree.prototype.drawInit = function (cId) {
 	this.Tline = '#000000';
 
 	// Posições e Tamanhos
-	this.Tfont = '15px arial';
 	this.Tsize = 15;
 	this.curLeft = 0;
 	this.vPad = this.maxkey * 10;
 	this.hPad = 15;
 
-	var d = 0, w = 0;
-	var ptr = this.root;
+	let d = 0, w = 0;
+	let ptr = this.root;
 	while (!ptr.isLeaf()) {
 		ptr = ptr.nodptr[0];
 		d++;
 	}
 	this.contex.font = this.Tfont;
 	while (true) {
-		for (var i = 0, len = ptr.keyval.length; i < len; i++) {
+		for (let i = 0, len = ptr.keyval.length; i < len; i++) {
 			w += this.contex.measureText(ptr.keyval[i]).width + 4;
 		}
 		w += ((this.maxkey - ptr.keyval.length) * 9) + 1;
@@ -78,29 +77,29 @@ tree.prototype.drawInit = function (cId) {
 };
 
 tree.prototype.ypos = function (lvl) {
-	var oneRow = this.Tsize + 13 + this.vPad;
+	let oneRow = this.Tsize + 13 + this.vPad;
 	return (10 + (lvl * oneRow));
 };
 
 tree.prototype.drawNode = function (ptr, lvl) {
-	var ret = [];
-	var y = this.ypos(lvl);
+	let ret = [];
+	let y = this.ypos(lvl);
 	if (ptr.isLeaf()) {
 		ret[0] = this.curLeft;
 		ret[1] = this.drawLeaf(ptr, y);
 		return ret;
 	}
-	var KL = [], KR = [];
-	for (var i = 0, len = ptr.nodptr.length; i < len; i++) {
+	let KL = [], KR = [];
+	for (let i = 0, len = ptr.nodptr.length; i < len; i++) {
 		ret = this.drawNode(ptr.nodptr[i], lvl + 1);
 		KL[i] = ret[0];
 		KR[i] = ret[1];
 	}
 
-	var cA = this.contex;
-	var h = this.Tsize;
-	var x, p, xb, yb, w = 0;
-	for (var i = 0, len = ptr.keyval.length; i < len; i++) {
+	let cA = this.contex;
+	let h = this.Tsize;
+	let x, p, xb, yb, w = 0;
+	for (let i = 0, len = ptr.keyval.length; i < len; i++) {
 		w += cA.measureText(ptr.keyval[i]).width + 4;
 	}
 	w += ((this.maxkey - ptr.keyval.length) * 10) + 1;
@@ -110,7 +109,7 @@ tree.prototype.drawNode = function (ptr, lvl) {
 
 	yb = this.ypos(lvl + 1);
 	cA.beginPath();
-	for (var i = 0, len = this.maxkey + 1; i < len; i++) {
+	for (let i = 0, len = this.maxkey + 1; i < len; i++) {
 		w = (i >= ptr.keyval.length) ? 6 : cA.measureText(ptr.keyval[i]).width;
 		cA.fillStyle = this.Nline;
 		if (i < this.maxkey)
@@ -140,12 +139,12 @@ tree.prototype.drawNode = function (ptr, lvl) {
 };
 
 tree.prototype.drawLeaf = function (ptr, y) {
-	var cA = this.contex;
-	var x = this.curLeft;
-	var h = this.Tsize;
-	var w;
-	var sx = -1;
-	for (var i = 0, len = this.maxkey; i < len; i++) {
+	let cA = this.contex;
+	let x = this.curLeft;
+	let h = this.Tsize;
+	let w;
+	let sx = -1;
+	for (let i = 0, len = this.maxkey; i < len; i++) {
 		if (ptr !== null && ptr == this.leaf && i == this.item) sx = x;
 		w = (i >= ptr.keyval.length) ? 5 : cA.measureText(ptr.keyval[i]).width;
 		cA.fillStyle = this.Lline;
@@ -163,7 +162,7 @@ tree.prototype.drawLeaf = function (ptr, y) {
 	}
 	cA.fillStyle = this.Tline;
 	sx = this.curLeft;
-	for (var i = 0, len = ptr.keyval.length; i < len; i++) {
+	for (let i = 0, len = ptr.keyval.length; i < len; i++) {
 		w = cA.measureText(ptr.keyval[i]).width;
 		cA.fillText(ptr.keyval[i], sx + 2, y + h + 4);
 		sx += w + 4;

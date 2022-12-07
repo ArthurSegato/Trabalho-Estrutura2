@@ -9,6 +9,16 @@ const buttonB = document.getElementById("button-B");
 const buttonBplus = document.getElementById("button-Bplus");
 const buttonBack = document.getElementById("button-Back");
 const treesTitle = document.getElementById("canvas-title");
+const treeOrderContainer = document.getElementById("treeOrderContainer");
+const treeOrderInput = document.getElementById("treeOrderInput");
+const treeOrderButton = document.getElementById("treeOrderButton");
+const treeInsertInput = document.getElementById("treeInsertInput");
+const treeInsertButton = document.getElementById("treeInsertButton");
+const treeRemoveInput = document.getElementById("treeRemoveInput");
+const treeRemoveButton = document.getElementById("treeRemoveButton");
+const treeSearchInput = document.getElementById("treeSearchInput");
+const treeSearchButton = document.getElementById("treeSearchButton");
+let currentState = "loading";
 /*
  *  LISTENERS
  */
@@ -21,6 +31,62 @@ buttonB.addEventListener("click", () => stateMachine("tree-b"));
 buttonBplus.addEventListener("click", () => stateMachine("tree-bplus"));
 
 buttonBack.addEventListener("click", () => stateMachine("home"));
+
+treeOrderButton.addEventListener("click", () => {
+    if(currentState == "tree-b"){
+
+    }
+    
+    if(currentState == "tree-bplus") {
+        executar("cre", "treeOrderInput");
+    }
+    treeOrderInput.value = "";
+});
+
+treeInsertButton.addEventListener("click", () => {
+    if(currentState == "tree-redblack"){
+
+    }
+
+    if(currentState == "tree-b"){
+
+    }
+    
+    if(currentState == "tree-bplus") {
+        executar("add", "treeInsertInput");
+    }
+    treeInsertInput.value = "";
+});
+
+treeRemoveButton.addEventListener("click", () => {
+    if(currentState == "tree-redblack"){
+
+    }
+
+    if(currentState == "tree-b"){
+
+    }
+    
+    if(currentState == "tree-bplus") {
+        executar("del", "treeRemoveInput");
+    }
+    treeRemoveInput.value = "";
+});
+
+treeSearchButton.addEventListener("click", () => {
+    if(currentState == "tree-redblack"){
+
+    }
+
+    if(currentState == "tree-b"){
+
+    }
+    
+    if(currentState == "tree-bplus") {
+        executar("find", "treeSearchInput");
+    }
+    treeSearchInput.value = "";
+});
 /*
  *  MAQUINA DE ESTADOS PARA CONTROLAR AS TELAS DA APLICAÇÃO
  */
@@ -28,18 +94,23 @@ const stateMachine = (state) => {
     switch (state) {
         case "loading":
             loadingHandler();
+            currentState = "loading";
             break;
         case "home":
             homeHandler();
+            currentState = "home";
             break;
         case "tree-redblack":
             redblackHandler();
+            currentState = "tree-redblack";
             break;
         case "tree-b":
             bHandler();
+            currentState = "tree-b";
             break;
         case "tree-bplus":
             bplusHandler();
+            currentState = "tree-bplus";
             break;
         default:
             console.error("Estado Inexistente!");
@@ -72,6 +143,7 @@ const redblackHandler = () => {
     removeElement(homeDOM);
     removeElement(loadingDOM);
     showElement(treesDOM);
+    removeElement(treeOrderContainer);
     treesTitle.innerText = "Árvore Vermelho-Preta";
 };
 
@@ -79,6 +151,7 @@ const bHandler = () => {
     removeElement(homeDOM);
     removeElement(loadingDOM);
     showElement(treesDOM);
+    showElement(treeOrderContainer);
     treesTitle.innerText = "Árvore B";
 };
 
@@ -86,5 +159,6 @@ const bplusHandler = () => {
     removeElement(homeDOM);
     removeElement(loadingDOM);
     showElement(treesDOM);
+    showElement(treeOrderContainer);
     treesTitle.innerText = "Árvore B+";
 };

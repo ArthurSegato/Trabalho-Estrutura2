@@ -459,11 +459,9 @@ verificaErro = function (op, treeExec) {
 	num = parseInt(num, 10);
 	if (isNaN(num)) num = 0; //nao precisa
 
-	console.log(num)
-
 	var txt = '';
-	if (myTree !== null) txt = myTree.show('frCanvas');
-	ge$('frMsg').innerHTML = txt;
+	if (myTree !== null) txt = myTree.show('toCanvas');
+	ge$('toMsg').innerHTML = txt;
 
 	txt = '';
 	if (treeExec == "treeInsert" && myTree === null) {
@@ -480,14 +478,11 @@ verificaErro = function (op, treeExec) {
 				}
 	if (txt.length > 0) op = 'error';
 
-	console.log('vererro');
-
 	return op, txt;
 }
 
 executar = function (op, treeExec) {
 	num = document.getElementById(treeExec).value
-	//console.log(treeExec)
 	op, txt = verificaErro(op, treeExec)
 
 	switch (op) {
@@ -548,10 +543,6 @@ enterToTab = function (obj, e) {
 		}
 		return false;
 	}
-}
-
-const orderTree = (obj, e) => {
-	console.log("Roda aqui");
 }
 
 // Pega o valor contido nos campos HTML
