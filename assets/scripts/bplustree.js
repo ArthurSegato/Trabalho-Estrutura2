@@ -452,85 +452,7 @@ opcao = function (op) {
 	if (dis) ge$('btn').focus();
 	else endCursor(ge$('num'));
 }
-/*
-verificaErro = function (op, elementID) {
-	num = document.getElementById(elementID).value;
-	console.log(num);
-	console.log(op);
 
-	if (isNaN(num)) num = 0;
-
-	var txt = '';
-	if (myTree !== null) txt = myTree.show('frCanvas');
-	ge$('frMsg').innerHTML = txt;
-
-	txt = '';
-	if (op == 'cre' && num < 2) {
-		
-	} else
-		if (op == 'add' && num <= 0) {
-			txt = 'Erro: O numero precisa ser maior que 0.';
-		}
-	if (txt.length > 0) op = 'error';
-
-	return op, txt;
-}
-
-executarOrdem = function (op) {
-	num = document.getElementById("treeOrder").value;
-
-	console.log("antes", myTree);
-	myTree = new tree(num);
-	console.log("depois", myTree);
-
-	hist = [];
-	hist[0] = 'myTree = new tree(' + num + ');';
-
-	if (num > 2) {
-		txt = myTree.show('toCanvas');
-	}
-	else {
-		txt = 'Erro: A ordem deve ser no mínimo 3.';
-	}
-	ge$('toMsg').innerHTML = txt;
-}
-
-executarInserir = function (op) {
-	num = document.getElementById("treeInsert").value;
-
-	if (myTree != null) {
-		txt = myTree.show('toCanvas');
-		myTree.insert(num, num);
-		hist.push('myTree.insert(' + num + ',' + num + ');');
-		console.log(hist);
-	}
-	else {
-		txt = "Erro: Você deve criar a árvore primeiro.";
-	}
-	ge$('toMsg').innerHTML = txt;
-}
-
-executarRemover = function (op) {
-	num = document.getElementById("treeRemove").value;
-	op, txt = verificaErro(op, "treeRemove");
-
-	if (num == 0) {
-		myTree.remove();
-		hist.push('myTree.remove();');
-	} else {
-		myTree.remove(num);
-		hist.push('myTree.remove(' + num + ');');
-	}
-	ge$('toMsg').innerHTML = txt;
-}
-
-executarSearch = function (op) {
-	num = document.getElementById("treeSearch").value;
-	op, txt = verificaErro(op, "treeSearch");
-
-	ge$('toMsg').innerHTML = txt;
-}
-*/
 verificaErro = function (op, treeExec) {
 	num = document.getElementById(treeExec).value
 
@@ -552,7 +474,10 @@ verificaErro = function (op, treeExec) {
 		} else
 			if (treeExec == "treeInsert" && num <= 0) {
 				txt = 'Erro: O numero precisa ser maior que 0.';
-			}
+			} else
+				if (treeExec == "treeRemove" && myTree === null) {
+					txt = 'Erro: Não é possivel remover o valor.'
+				}
 	if (txt.length > 0) op = 'error';
 
 	console.log('vererro');
@@ -562,8 +487,8 @@ verificaErro = function (op, treeExec) {
 
 executar = function (op, treeExec) {
 	num = document.getElementById(treeExec).value
-	console.log(treeExec)
-	op, txt = verificaErro(op, treeExec) //erro porque verifica se a arvore esta nula antes de criar ela
+	//console.log(treeExec)
+	op, txt = verificaErro(op, treeExec)
 
 	switch (op) {
 		case 'error':
