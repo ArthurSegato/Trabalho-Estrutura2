@@ -8,6 +8,19 @@ const buttonRedBlack = document.getElementById("button-redblack");
 const buttonB = document.getElementById("button-B");
 const buttonBplus = document.getElementById("button-Bplus");
 const buttonBack = document.getElementById("button-Back");
+const treesTitle = document.getElementById("canvas-title");
+/*
+ *  LISTENERS
+ */
+window.addEventListener("load", () => stateMachine("home"));
+
+buttonRedBlack.addEventListener("click", () => stateMachine("tree-redblack"));
+
+buttonB.addEventListener("click", () => stateMachine("tree-b"));
+
+buttonBplus.addEventListener("click", () => stateMachine("tree-bplus"));
+
+buttonBack.addEventListener("click", () => stateMachine("home"));
 /*
  *  MAQUINA DE ESTADOS PARA CONTROLAR AS TELAS DA APLICAÇÃO
  */
@@ -19,14 +32,16 @@ const stateMachine = (state) => {
             showElement(loadingDOM);
             break;
         case "home":
-            removeElement(loadingDOM);
-            removeElement(treesDOM);
-            showElement(homeDOM);
+            homeHandler();
             break;
-        case "trees":
-            removeElement(homeDOM);
-            removeElement(loadingDOM);
-            showElement(treesDOM);
+        case "tree-redblack":
+            redblackHandler();
+            break;
+        case "tree-b":
+            bHandler();
+            break;
+        case "tree-bplus":
+            bplusHandler();
             break;
         default:
             console.error("Estado Inexistente!");
@@ -42,15 +57,30 @@ const removeElement = ( element ) => {
 const showElement = ( element ) => {
     element.classList.remove("hidden-element");
 };
-/*
- *  LISTENERS
- */
-window.addEventListener("load", (event) => stateMachine("home"));
 
-buttonRedBlack.addEventListener("click", () => stateMachine("trees"));
+const homeHandler = () => {
+    removeElement(loadingDOM);
+    removeElement(treesDOM);
+    showElement(homeDOM);
+}
 
-buttonB.addEventListener("click", () => stateMachine("trees"));
+const redblackHandler = () => {
+    removeElement(homeDOM);
+    removeElement(loadingDOM);
+    showElement(treesDOM);
+    treesTitle.innerText = "Árvore Vermelho-Preta";
+}
 
-buttonBplus.addEventListener("click", () => stateMachine("trees"));
+const bHandler = () => {
+    removeElement(homeDOM);
+    removeElement(loadingDOM);
+    showElement(treesDOM);
+    treesTitle.innerText = "Árvore B";
+}
 
-buttonBack.addEventListener("click", () => stateMachine("home"));
+const bplusHandler = () => {
+    removeElement(homeDOM);
+    removeElement(loadingDOM);
+    showElement(treesDOM);
+    treesTitle.innerText = "Árvore B+";
+}
