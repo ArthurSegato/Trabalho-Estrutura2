@@ -12,7 +12,6 @@
 	<link rel="stylesheet" href="assets/styles/loading.css">
 	<link rel="stylesheet" href="assets/styles/home.css">
 	<link rel="stylesheet" href="assets/styles/trees.css">
-	<link rel="stylesheet" href="assets/styles/bplustree.css">
 	<!-- Fontes -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,59 +46,46 @@
 	<!-- Tela das Arvores -->
 	<section id="trees" class="trees hidden-element">
 		<div id="sidebar" class="sidebar">
-			<form name="actForm" id="actForm">
-				<div class="sidebar__container slide-in-left">
-					<h3 class="sidebar__title">Opcoes:</h3>
-					<div class="sidebar__input__container">
-						<label for="treeOrder" class="sidebar__label">Ordem:</label>
-						<input type="number" name="treeOrder" id="treeOrder" class="sidebar__input">
-						<a href="#" id="treeOrder" class="button button--wide button--input"
-							onclick="executar('cre', this.id)">Adicionar</a>
-					</div>
-					<div class="sidebar__input__container">
-						<label for="treeInsert" class="sidebar__label">Inserir:</label>
-						<input type="number" name="treeInsert" id="treeInsert" class="sidebar__input">
-						<a href="#" id="treeInsert" class="button button--wide button--input"
-							onclick="executar('add', this.id)">Adicionar</a>
-					</div>
-					<div class="sidebar__input__container">
-						<label for="treeRemove" class="sidebar__label">Remover:</label>
-						<input type="number" name="treeRemove" id="treeRemove" class="sidebar__input">
-						<a href="#" id="treeRemove" class="button button--wide button--input"
-							onclick="executar('del', this.id)">Remover</a>
-					</div>
-					<div class="sidebar__input__container">
-						<label for="treeSearch" class="sidebar__label">Buscar:</label>
-						<input type="number" name="treeSearch" id="treeSearch" class="sidebar__input">
-						<a href="#" id="treeSearch" class="button button--wide button--input"
-							onclick="executar('find', this.id)">Buscar</a>
-					</div>
+			<div class="sidebar__container slide-in-left">
+				<h3 class="sidebar__title">Opcoes:</h3>
+				<div class="sidebar__input__container" id="treeOrderContainer">
+					<label for="treeOrder" class="sidebar__label">Ordem:</label>
+					<input type="number" name="treeOrder" id="treeOrderInput" class="sidebar__input">
+					<a href="#" id="treeOrderButton" class="button button--wide button--input">Adicionar</a>
 				</div>
-				<div class="sidebar__buttons slide-in-left">
-					<a href="#" id="button-Back" class="button button--wide">Voltar</a>
+				<div class="sidebar__input__container">
+					<label for="treeInsert" class="sidebar__label">Inserir:</label>
+					<input type="number" name="treeInsert" id="treeInsertInput" class="sidebar__input">
+					<a href="#" id="treeInsertButton" class="button button--wide button--input">Adicionar</a>
 				</div>
-			</form>
+				<div class="sidebar__input__container">
+					<label for="treeRemove" class="sidebar__label">Remover:</label>
+					<input type="number" name="treeRemove" id="treeRemoveInput" class="sidebar__input">
+					<a href="#" id="treeRemoveButton" class="button button--wide button--input">Remover</a>
+				</div>
+				<div class="sidebar__input__container">
+					<label for="treeSearch" class="sidebar__label">Buscar:</label>
+					<input type="number" name="treeSearch" id="treeSearchInput" class="sidebar__input">
+					<a href="#" id="treeSearchButton" class="button button--wide button--input">Buscar</a>
+				</div>
+			</div>
+			<div class="sidebar__buttons slide-in-left">
+				<a href="#" id="button-Back" class="button button--wide">Voltar</a>
+			</div>
 		</div>
 		<div id="canvas-container" class="canvas__container">
 			<h4 id="canvas-title" class="canvas__title">Arvore Alguma coisa Qualquer</h4>
-			<div id="frDiv">
-				<h2>Antes</h2>
-				<div class="showBox">
-					<div id="frMsg"></div>
-					<canvas id="frCanvas" width="1" height="1"></canvas>
-				</div>
-			</div>
-			<div class="showBox">
+			<div id="canvas-bplus" class="showBox">
 				<div id="toMsg"></div>
 				<canvas id="toCanvas" width="1" height="1"></canvas>
 			</div>
-			</canvas>
 		</div>
 	</section>
 	<!-- Scripts -->
-	<script src="assets/scripts/main.js"></script>
+	<script src="assets/scripts/btree.js"></script>
 	<script src="assets/scripts/bplustree.js"></script>
 	<script src="assets/scripts/bplustree-show.js"></script>
+	<script src="assets/scripts/main.js"></script>
 </body>
 
 </html>
